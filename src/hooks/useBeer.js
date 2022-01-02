@@ -4,7 +4,7 @@ const fetcher = (...args) => fetch(...args).then((res) => res.json());
 
 const useBeer = (id = "") => {
 	const { data, error } = useSWR(
-		`https://api.punkapi.com/v2/beers/${id}`,
+		`https://api.punkapi.com/v2/beers/${id}?per_page=60`,
 		fetcher
 	);
 
