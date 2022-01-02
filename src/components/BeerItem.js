@@ -1,0 +1,91 @@
+import { Link } from "react-router-dom";
+import styled from "styled-components";
+import { getBeerColor } from "../utils";
+
+const BeerItem = ({ beer }) => {
+	const ebc = beer.ebc ? beer.ebc : 100;
+
+	return (
+		<Item ebc={ebc}>
+			<StyledLink to={`/beer/${beer.id}`} ebc={ebc}>
+				<Name>
+					{beer.name} <Abv>{beer.abv}%</Abv>
+				</Name>
+				<Tagline>{beer.tagline}</Tagline>
+
+				{!beer.image_url.includes("keg.png") && (
+					<Image src={beer.image_url} loading="lazy" />
+				)}
+			</StyledLink>
+		</Item>
+	);
+};
+
+const Item = styled.li`
+	padding: 1.25rem 70px 1.25rem 1.25rem;
+	color: ${(props) => (props.ebc > 25 ? "#ffffff" : "#000000")};
+	background-color: ${(props) => getBeerColor(props.ebc)};
+	overflow: hidden;
+	position: relative;
+	transition: all 0.5s;
+	border-radius: 5px;
+
+	&:hover {
+		overflow: visible;
+		z-index: 10;
+		transform: scale(1.05);
+		box-shadow: 0 30px 40px -20px rgb(0 0 0 / 40%);
+
+		img {
+			transform: translateY(-75%) rotate(5deg) translateZ(0);
+		}
+	}
+`;
+
+const StyledLink = styled(Link)`
+	color: ${(props) => (props.ebc > 25 ? "#ffffff" : "#000000")};
+	text-decoration: none;
+
+	&:after {
+		content: "";
+		position: absolute;
+		top: 0;
+		right: 0;
+		bottom: 0;
+		left: 0;
+	}
+`;
+
+const Name = styled.h2`
+	margin: 0;
+	display: flex;
+	align-items: center;
+	font-size: 28px;
+	line-height: 1;
+`;
+
+const Tagline = styled.p`
+	margin-top: 0;
+`;
+
+const Abv = styled.span`
+	display: inline-flex;
+	align-items: center;
+	justify-content: center;
+	font-size: 20px;
+	padding-left: 0.75rem;
+	margin-left: 0.75rem;
+	opacity: 0.75;
+	border-left: 2px solid rgba(255, 255, 255, 0.5);
+`;
+
+const Image = styled.img`
+	position: absolute;
+	right: -10px;
+	transform: translateY(-80%) translateZ(0);
+	width: 70px;
+	transition: all 0.5s;
+	-webkit-transform-style: preserve-3d;
+`;
+
+export default BeerItem;
