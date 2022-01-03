@@ -22,7 +22,7 @@ body {
 	overflow-x: hidden;
 	background-color: var(--color-background);
 	background: url("../public/background.jpg");
-	background-size: 60%;
+	background-size: 800px;
 	color: #ffffff;
 	box-shadow: 0 400px 100px rgba(0, 0, 0, 0.33) inset;
 }
