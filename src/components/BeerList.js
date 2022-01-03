@@ -1,13 +1,19 @@
 import styled from "styled-components";
 import useBeer from "../hooks/useBeer";
 import BeerItem from "./BeerItem";
+import BeerItemSkeletons from "./BeerItemSkeletons";
 
 const BeerList = () => {
 	const { data: beers, isLoading, isError } = useBeer();
 
 	console.log(beers);
 
-	if (isLoading) return <p>Loading...</p>;
+	if (isLoading)
+		return (
+			<Grid>
+				<BeerItemSkeletons />
+			</Grid>
+		);
 	if (isError) return <p>Error!</p>;
 
 	return (
