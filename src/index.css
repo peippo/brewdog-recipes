@@ -20,8 +20,17 @@ body {
 	-webkit-font-smoothing: antialiased;
 	-moz-osx-font-smoothing: grayscale;
 	overflow-x: hidden;
-	background: var(--color-background);
+	background-color: var(--color-background);
+	background: url("../public/background.jpg");
+	background-size: 60%;
 	color: #ffffff;
+	box-shadow: 0 400px 100px rgba(0, 0, 0, 0.33) inset;
+}
+
+@media (min-width: 680px) {
+	body {
+		box-shadow: 0 200px 50px rgba(0, 0, 0, 0.5) inset;
+	}
 }
 
 code {
