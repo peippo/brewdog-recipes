@@ -39,6 +39,37 @@ const StrengthFilter = () => {
 		}
 	};
 
+	const marks = [
+		{
+			value: 0,
+			label: "0%",
+		},
+		{
+			value: 5,
+			label: "5%",
+		},
+		{
+			value: 10,
+			label: "10%",
+		},
+		{
+			value: 15,
+			label: "15%",
+		},
+		{
+			value: 20,
+			label: "20%",
+		},
+		{
+			value: 35,
+			label: "35%",
+		},
+		{
+			value: 45,
+			label: "45%",
+		},
+	];
+
 	return (
 		<Container>
 			<Label id="strength-label">Alcohol by volume (%)</Label>
@@ -53,6 +84,7 @@ const StrengthFilter = () => {
 				getAriaValueText={thumbAriaValueText}
 				valueLabelDisplay="auto"
 				valueLabelFormat={(value) => `${value}%`}
+				marks={marks}
 			/>
 		</Container>
 	);
