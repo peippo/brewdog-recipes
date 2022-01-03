@@ -41,7 +41,7 @@ export const getBeerColor = (ebc) => {
 		case ebc >= 6:
 			color = "#F6F513";
 			break;
-		case ebc >= 4:
+		case ebc >= 0:
 			color = "#F8F753";
 			break;
 		default:
