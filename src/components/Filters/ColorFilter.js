@@ -50,7 +50,7 @@ const ColorFilter = () => {
 				max={INITIAL_COLOR[1]}
 				onChange={handleChange}
 				onChangeCommitted={handleCommittedChange}
-				aria-label="strength-label"
+				aria-labelledby="strength-label"
 				getAriaLabel={thumbAriaLabel}
 				getAriaValueText={thumbAriaValueText}
 				valueLabelDisplay="auto"

@@ -50,7 +50,7 @@ const BitternessFilter = () => {
 				max={INITIAL_BITTERNESS[1]}
 				onChange={handleChange}
 				onChangeCommitted={handleCommittedChange}
-				aria-label="bitterness-label"
+				aria-labelledby="bitterness-label"
 				getAriaLabel={thumbAriaLabel}
 				getAriaValueText={thumbAriaValueText}
 				valueLabelDisplay="auto"

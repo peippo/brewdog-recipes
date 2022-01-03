@@ -48,7 +48,7 @@ const StrengthFilter = () => {
 				max={INITIAL_STRENGTH[1]}
 				onChange={handleChange}
 				onChangeCommitted={handleCommittedChange}
-				aria-label="strength-label"
+				aria-labelledby="strength-label"
 				getAriaLabel={thumbAriaLabel}
 				getAriaValueText={thumbAriaValueText}
 				valueLabelDisplay="auto"
