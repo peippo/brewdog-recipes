@@ -53,7 +53,7 @@ const ColorFilter = () => {
 
 	return (
 		<Container>
-			<Label id="strength-label">Color (EBC)</Label>
+			<Label id="strength-label">Color</Label>
 			<Slider
 				className="color-slider"
 				value={value}

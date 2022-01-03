@@ -102,7 +102,7 @@ const BitternessFilter = () => {
 
 	return (
 		<Container>
-			<Label id="bitterness-label">Bitterness (IBU)</Label>
+			<Label id="bitterness-label">Bitterness</Label>
 			<Slider
 				value={value}
 				min={MIN_POSITION}
