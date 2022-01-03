@@ -1,6 +1,17 @@
 :root {
 	--font-family-base: "Montserrat", sans-serif;
 	--font-family-heading: "Teko", sans-serif;
+	--color-background: #2f1d1d;
+	--color-primary: #ea00bb;
+}
+
+html {
+	box-sizing: border-box;
+}
+*,
+*:before,
+*:after {
+	box-sizing: inherit;
 }
 
 body {
@@ -9,6 +20,8 @@ body {
 	-webkit-font-smoothing: antialiased;
 	-moz-osx-font-smoothing: grayscale;
 	overflow-x: hidden;
+	background: var(--color-background);
+	color: #ffffff;
 }
 
 code {

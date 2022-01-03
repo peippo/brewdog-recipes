@@ -24,8 +24,9 @@ const Grid = styled.ul`
 	grid-template-columns: 1fr;
 	gap: 0.5rem;
 	list-style-type: none;
-	padding: 0.5rem;
-	margin: 0;
+	padding: 0 1.5rem;
+	margin: 0 auto;
+	max-width: 1500px;
 
 	@media (min-width: 576px) {
 		grid-template-columns: repeat(2, 1fr);
