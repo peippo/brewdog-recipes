@@ -39,15 +39,16 @@
 }
 
 .color-slider .MuiSlider-thumb {
-	background-color: var(--color-background);
+	background-color: var(--color-primary);
 }
 
 .color-slider .MuiSlider-thumb:after {
 	content: "";
 	position: absolute;
-	width: 10px;
-	height: 10px;
-	top: 10px;
+	width: 20px;
+	height: 20px;
+	/* top: 10px;
 	left: 10px;
-	background: currentColor;
+	background: currentColor; */
+	box-shadow: 0 0 0px 3px var(--color-background);
 }
