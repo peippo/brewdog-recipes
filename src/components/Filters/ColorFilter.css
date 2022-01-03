@@ -1,0 +1,43 @@
+.MuiSlider-root.color-slider {
+	background: linear-gradient(
+		to left,
+		#030403,
+		#080707,
+		#0f0b0a,
+		#261716,
+		#5d341a,
+		#8d4c32,
+		#bc6733,
+		#bf813a,
+		#bf923b,
+		#d5bc26,
+		#ece61a,
+		#f6f513,
+		#f8f753
+	);
+}
+
+.color-slider .MuiSlider-rail {
+	background-color: transparent;
+}
+
+.color-slider .MuiSlider-track {
+	background-color: white;
+	border: 0px;
+	box-shadow: 0 1px 2px 0 rgb(0 0 0 / 50%) inset;
+	height: 6px;
+}
+
+.color-slider .MuiSlider-thumb {
+	background-color: white;
+}
+
+.color-slider .MuiSlider-thumb:after {
+	content: "";
+	position: absolute;
+	width: 10px;
+	height: 10px;
+	top: 10px;
+	left: 10px;
+	background: currentColor;
+}

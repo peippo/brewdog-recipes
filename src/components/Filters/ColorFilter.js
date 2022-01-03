@@ -1,11 +1,10 @@
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import styled from "styled-components";
 import Slider from "@mui/material/Slider";
 import { useRecoilState } from "recoil";
 import { colorAtom } from "../../state/color";
 import { INITIAL_COLOR } from "../../state/initialValues";
-
-// TODO: logarithmic scale
+import "./ColorFilter.css";
 
 const ColorFilter = () => {
 	const [color, setColor] = useRecoilState(colorAtom);
@@ -22,8 +21,19 @@ const ColorFilter = () => {
 	};
 
 	const handleCommittedChange = (event, value) => {
-		setColor(value);
+		// If slider max thumb is at initial max value, set it to 9999
+		let adjustedValue = value;
+		if (value[1] === INITIAL_COLOR[1]) {
+			adjustedValue = [value[0], 9999];
+		}
+
+		setColor(adjustedValue);
 	};
+
+	// Trigger handleCommittedChange on load
+	useEffect(() => {
+		handleCommittedChange(null, value);
+	}, []);
 
 	const thumbAriaLabel = (thumbIndex) => {
 		if (thumbIndex === 0) {
@@ -45,6 +55,7 @@ const ColorFilter = () => {
 		<Container>
 			<Label id="strength-label">Color (EBC)</Label>
 			<Slider
+				className="color-slider"
 				value={value}
 				min={INITIAL_COLOR[0]}
 				max={INITIAL_COLOR[1]}
@@ -53,7 +64,11 @@ const ColorFilter = () => {
 				aria-labelledby="strength-label"
 				getAriaLabel={thumbAriaLabel}
 				getAriaValueText={thumbAriaValueText}
-				valueLabelDisplay="auto"
+				valueLabelDisplay="off"
+				sx={{
+					background:
+						"linear-gradient(to left, #030403, #080707, #0F0B0A, #261716, #5D341A, #8D4C32, #BC6733, #BF813A, #BF923B, #D5BC26, #ECE61A, #F6F513, #F8F753)",
+				}}
 			/>
 		</Container>
 	);
