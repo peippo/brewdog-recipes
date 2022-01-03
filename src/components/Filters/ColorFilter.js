@@ -66,8 +66,7 @@ const ColorFilter = () => {
 				getAriaValueText={thumbAriaValueText}
 				valueLabelDisplay="off"
 				sx={{
-					background:
-						"linear-gradient(to left, #030403, #080707, #0F0B0A, #261716, #5D341A, #8D4C32, #BC6733, #BF813A, #BF923B, #D5BC26, #ECE61A, #F6F513, #F8F753)",
+					color: "var(--color-primary)",
 				}}
 			/>
 		</Container>
@@ -83,8 +82,9 @@ const Container = styled.div`
 const Label = styled.p`
 	font-family: var(--font-family-heading);
 	text-transform: uppercase;
-	font-size: 20px;
+	font-size: 24px;
 	margin: 0;
+	text-shadow: 0 3px 3px rgba(0, 0, 0, 0.75);
 `;
 
 export default ColorFilter;

@@ -85,6 +85,9 @@ const StrengthFilter = () => {
 				valueLabelDisplay="auto"
 				valueLabelFormat={(value) => `${value}%`}
 				marks={marks}
+				sx={{
+					color: "var(--color-primary)",
+				}}
 			/>
 		</Container>
 	);
@@ -99,8 +102,9 @@ const Container = styled.div`
 const Label = styled.p`
 	font-family: var(--font-family-heading);
 	text-transform: uppercase;
-	font-size: 20px;
+	font-size: 24px;
 	margin: 0;
+	text-shadow: 0 3px 3px rgba(0, 0, 0, 0.75);
 `;
 
 export default StrengthFilter;

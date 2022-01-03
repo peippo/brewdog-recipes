@@ -22,14 +22,24 @@
 }
 
 .color-slider .MuiSlider-track {
-	background-color: white;
+	background-color: var(--color-background);
 	border: 0px;
 	box-shadow: 0 1px 2px 0 rgb(0 0 0 / 50%) inset;
 	height: 6px;
 }
 
+.color-slider .MuiSlider-track:after {
+	content: "";
+	position: absolute;
+	left: 0;
+	top: 2px;
+	width: 100%;
+	height: 1px;
+	background-color: var(--color-primary);
+}
+
 .color-slider .MuiSlider-thumb {
-	background-color: white;
+	background-color: var(--color-background);
 }
 
 .color-slider .MuiSlider-thumb:after {
