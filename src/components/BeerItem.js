@@ -4,6 +4,10 @@ import { getBeerColor } from "../utils";
 
 const BeerItem = ({ beer }) => {
 	const ebc = beer.ebc ? beer.ebc : 100;
+	const hasImage =
+		beer.image_url &&
+		!beer.image_url.includes("keg.png") &&
+		!beer.image_url.includes("cask.png");
 
 	return (
 		<Item ebc={ebc}>
@@ -13,9 +17,7 @@ const BeerItem = ({ beer }) => {
 				</Name>
 				<Tagline>{beer.tagline}</Tagline>
 
-				{!beer.image_url.includes("keg.png") && (
-					<Image src={beer.image_url} loading="lazy" />
-				)}
+				{hasImage && <Image src={beer.image_url} loading="lazy" />}
 			</StyledLink>
 		</Item>
 	);
