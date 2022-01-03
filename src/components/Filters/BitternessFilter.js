@@ -2,14 +2,16 @@ import { useState } from "react";
 import styled from "styled-components";
 import Slider from "@mui/material/Slider";
 import { useRecoilState } from "recoil";
-import { strengthAtom } from "../../state/strength";
-import { INITIAL_STRENGTH } from "../../state/initialValues";
+import { bitternessAtom } from "../../state/bitterness";
+import { INITIAL_BITTERNESS } from "../../state/initialValues";
 
-const StrengthFilter = () => {
-	const [strength, setStrength] = useRecoilState(strengthAtom);
-	const [value, setValue] = useState(strength);
+// TODO: logarithmic scale
 
-	const minDistance = 1;
+const BitternessFilter = () => {
+	const [bitterness, setBitterness] = useRecoilState(bitternessAtom);
+	const [value, setValue] = useState(bitterness);
+
+	const minDistance = 10;
 
 	const handleChange = (event, newValue, thumbIndex) => {
 		if (thumbIndex === 0) {
@@ -20,39 +22,38 @@ const StrengthFilter = () => {
 	};
 
 	const handleCommittedChange = (event, value) => {
-		setStrength(value);
+		setBitterness(value);
 	};
 
 	const thumbAriaLabel = (thumbIndex) => {
 		if (thumbIndex === 0) {
-			return `Minimum volume`;
+			return `Minimum bitterness`;
 		} else {
-			return `Maximum volume`;
+			return `Maximum bitterness`;
 		}
 	};
 
 	const thumbAriaValueText = (value, thumbIndex) => {
 		if (thumbIndex === 0) {
-			return `Minimum volume ${value}%`;
+			return `Minimum bitterness ${value}`;
 		} else {
-			return `Maximum volume ${value}%`;
+			return `Maximum bitterness ${value}`;
 		}
 	};
 
 	return (
 		<Container>
-			<Label id="strength-label">Alcohol by volume (%)</Label>
+			<Label id="bitterness-label">Bitterness (IBU)</Label>
 			<Slider
 				value={value}
-				min={INITIAL_STRENGTH[0]}
-				max={INITIAL_STRENGTH[1]}
+				min={INITIAL_BITTERNESS[0]}
+				max={INITIAL_BITTERNESS[1]}
 				onChange={handleChange}
 				onChangeCommitted={handleCommittedChange}
-				aria-label="strength-label"
+				aria-label="bitterness-label"
 				getAriaLabel={thumbAriaLabel}
 				getAriaValueText={thumbAriaValueText}
 				valueLabelDisplay="auto"
-				valueLabelFormat={(value) => `${value}%`}
 			/>
 		</Container>
 	);
@@ -71,4 +72,4 @@ const Label = styled.p`
 	margin: 0;
 `;
 
-export default StrengthFilter;
+export default BitternessFilter;
