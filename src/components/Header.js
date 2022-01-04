@@ -1,10 +1,13 @@
 import styled from "styled-components";
+import { Link } from "react-router-dom";
 
 const Header = () => {
 	return (
 		<StyledHeader>
 			<Container>
-				<Logo src="/logo.png" alt="Brewdog brew recipes" />
+				<Link to="/">
+					<Logo src="/logo.png" alt="Brewdog brew recipes" />
+				</Link>
 			</Container>
 		</StyledHeader>
 	);
