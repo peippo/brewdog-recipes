@@ -6,7 +6,11 @@ const Header = () => {
 		<StyledHeader>
 			<Container>
 				<Link to="/">
-					<Logo src="/logo.png" alt="Brewdog brew recipes" />
+					<Logo
+						srcSet="/logo.png, /logo_2x.png 2x"
+						src="/logo.png"
+						alt="Brewdog brew recipes"
+					/>
 				</Link>
 			</Container>
 		</StyledHeader>
