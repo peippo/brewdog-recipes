@@ -1,10 +1,9 @@
 table {
 	border-collapse: collapse;
-	font-size: 0.9em;
-	font-family: sans-serif;
+	font-size: 1rem;
+	font-family: var(--font-family-base);
 	text-align: left;
 	width: 100%;
-	font-size: 16px;
 }
 
 table thead tr {
@@ -16,9 +15,9 @@ table thead tr {
 
 table th,
 table td {
-	padding: 12px 15px;
+	padding: 0.75rem 1rem;
 }
 
 table tbody tr:not(:last-of-type) {
-	border-bottom: 1px solid #dddddd;
+	border-bottom: 1px solid rgba(255, 255, 255, 0.4);
 }
