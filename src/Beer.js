@@ -6,6 +6,7 @@ import "./tables.css";
 import { ReactComponent as MaltIcon } from "./icons/icon-malt.svg";
 import { ReactComponent as HopsIcon } from "./icons/icon-hops.svg";
 import { ReactComponent as YeastIcon } from "./icons/icon-yeast.svg";
+import Bubbles from "./components/Bubbles";
 
 const Beer = () => {
 	const { beerId } = useParams();
@@ -28,6 +29,9 @@ const Beer = () => {
 						<Name>{beer.name}</Name>
 						<Tagline>{beer.tagline}</Tagline>
 					</div>
+					<BubblesWrapper>
+						<Bubbles />
+					</BubblesWrapper>
 					<DetailBoxes>
 						<DetailBox ebc={ebc}>
 							ABV <span>{beer.abv}%</span>
@@ -255,6 +259,7 @@ const Header = styled.header`
 	text-align: center;
 	position: relative;
 	border-bottom: 5px solid var(--color-background);
+	overflow: hidden;
 
 	&:after {
 		content: "";
@@ -272,6 +277,14 @@ const Header = styled.header`
 		flex-direction: row;
 		text-align: left;
 	}
+`;
+
+const BubblesWrapper = styled.div`
+	position: absolute;
+	right: 0;
+	bottom: -20px;
+	width: 250px;
+	height: 100%;
 `;
 
 const Name = styled.h1`
