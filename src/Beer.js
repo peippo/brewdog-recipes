@@ -482,7 +482,7 @@ const FoodList = styled.ul`
 	display: flex;
 	flex-wrap: wrap;
 	list-style-type: none;
-	margin: 0;
+	margin: 0 0 100px 0;
 	padding: 0 0 0 100px;
 `;
 

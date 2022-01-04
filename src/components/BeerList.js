@@ -24,7 +24,7 @@ const Grid = styled.ul`
 	gap: 0.5rem;
 	list-style-type: none;
 	padding: 0 1.5rem;
-	margin: 0 auto;
+	margin: 0 auto 75px;
 	max-width: 1500px;
 
 	@media (min-width: 576px) {

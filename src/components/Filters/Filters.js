@@ -25,6 +25,7 @@ const Container = styled.div`
 	padding: 0 2.5rem;
 	margin: -3rem auto 2rem;
 	max-width: 1200px;
+	width: 100%;
 
 	@media (min-width: 992px) {
 		flex-direction: row;
