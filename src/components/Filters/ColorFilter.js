@@ -33,6 +33,7 @@ const ColorFilter = () => {
 	// Trigger handleCommittedChange on load
 	useEffect(() => {
 		handleCommittedChange(null, value);
+		// eslint-disable-next-line react-hooks/exhaustive-deps
 	}, []);
 
 	const thumbAriaLabel = (thumbIndex) => {
