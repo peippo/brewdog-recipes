@@ -1,7 +1,7 @@
 import { useState } from "react";
 import styled from "styled-components";
 import Slider from "@mui/material/Slider";
-import { useSetRecoilState } from "recoil";
+import { useRecoilState } from "recoil";
 import { bitternessAtom } from "../../state/bitterness";
 import { INITIAL_BITTERNESS } from "../../state/initialValues";
 
@@ -54,19 +54,24 @@ const marks = [
 
 const MIN_POSITION = 0;
 const MAX_POSITION = 10;
+const MIN_VALUE = Math.log(INITIAL_BITTERNESS[0] || 1);
+const MAX_VALUE = Math.log(INITIAL_BITTERNESS[1]);
+const SCALE = (MAX_VALUE - MIN_VALUE) / (MAX_POSITION - MIN_POSITION);
 
 const getLogValue = (position) => {
-	const minValue = Math.log(INITIAL_BITTERNESS[0] || 1);
-	const maxValue = Math.log(INITIAL_BITTERNESS[1]);
+	return Math.floor(Math.exp(MIN_VALUE + SCALE * (position - MIN_POSITION)));
+};
 
-	const scale = (maxValue - minValue) / (MAX_POSITION - MIN_POSITION);
-
-	return Math.floor(Math.exp(minValue + scale * (position - MIN_POSITION)));
+const getSliderPosition = (value) => {
+	return Math.ceil((Math.log(value) - MIN_VALUE) / SCALE + MIN_POSITION);
 };
 
 const BitternessFilter = () => {
-	const setBitterness = useSetRecoilState(bitternessAtom);
-	const [value, setValue] = useState([MIN_POSITION, MAX_POSITION]);
+	const [bitterness, setBitterness] = useRecoilState(bitternessAtom);
+	const [value, setValue] = useState([
+		getSliderPosition(bitterness[0]),
+		getSliderPosition(bitterness[1]),
+	]);
 
 	const handleChange = (event, newValue, thumbIndex) => {
 		const minDistance = 1;
