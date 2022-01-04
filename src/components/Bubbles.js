@@ -42,31 +42,30 @@ const Bubble = styled.div`
 
 const Bubble1 = styled(Bubble)`
 	left: 10px;
-	animation-delay: 1000ms;
+	animation-delay: 300ms;
 	animation-duration: 1000ms;
 `;
 
 const Bubble2 = styled(Bubble)`
 	left: 50px;
-	animation-delay: 700ms;
 	animation-duration: 1100ms;
 `;
 
 const Bubble3 = styled(Bubble)`
 	left: 100px;
-	animation-delay: 1200ms;
+	animation-delay: 500ms;
 	animation-duration: 1300ms;
 `;
 
 const Bubble4 = styled(Bubble)`
 	left: 130px;
-	animation-delay: 1100ms;
+	animation-delay: 400ms;
 	animation-duration: 700ms;
 `;
 
 const Bubble5 = styled(Bubble)`
 	left: 170px;
-	animation-delay: 1300ms;
+	animation-delay: 600ms;
 	animation-duration: 800ms;
 `;
 
