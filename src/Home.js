@@ -6,8 +6,8 @@ const Home = () => {
 	return (
 		<>
 			<Helmet>
-				<title>Brewdog Brew Recipes</title>
-				<meta name="title" content="Brewdog Brew Recipes" />
+				<title>BrewDog Brew Recipes</title>
+				<meta name="title" content="BrewDog Brew Recipes" />
 				<meta name="description" content="Homebrewing for punks" />
 			</Helmet>
 			<Filters />

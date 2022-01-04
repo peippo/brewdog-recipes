@@ -9,7 +9,7 @@ const Header = () => {
 					<Logo
 						srcSet="/logo.png, /logo_2x.png 2x"
 						src="/logo.png"
-						alt="Brewdog brew recipes"
+						alt="BrewDog Brew Recipes"
 					/>
 				</Link>
 			</Container>

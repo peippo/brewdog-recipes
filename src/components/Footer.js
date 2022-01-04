@@ -6,7 +6,7 @@ const Footer = () => {
 			<div>
 				Recipes from{" "}
 				<a href="https://www.brewdog.com/uk/community/diy-dog">
-					Brewdog's DIY Dog
+					BrewDog's DIY Dog
 				</a>
 			</div>
 			<div>
