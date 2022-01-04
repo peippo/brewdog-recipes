@@ -7,7 +7,7 @@ table {
 }
 
 table thead tr {
-	background-color: var(--color-primary);
+	background-color: var(--color-secondary);
 	border-bottom: 4px solid var(--color-background);
 	color: #ffffff;
 	text-align: left;

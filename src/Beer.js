@@ -315,7 +315,7 @@ const Description = styled.p`
 const SubHeading = styled.h2`
 	font-size: 32px;
 	margin: 0;
-	color: var(--color-primary);
+	color: var(--color-secondary);
 	text-shadow: 0 4px 3px var(--color-background);
 `;
 
@@ -332,7 +332,7 @@ const BackgroundGradient = styled.div`
 const IconHeading = styled.div`
 	display: flex;
 	align-items: center;
-	color: var(--color-primary);
+	color: var(--color-secondary);
 
 	svg {
 		max-width: 34px;
