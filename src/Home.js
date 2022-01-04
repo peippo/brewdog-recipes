@@ -9,15 +9,6 @@ const Home = () => {
 				<title>Brewdog Brew Recipes</title>
 				<meta name="title" content="Brewdog Brew Recipes" />
 				<meta name="description" content="Homebrewing for punks" />
-				<meta
-					property="og:image"
-					content="https://brewdog-recipes.surge.sh/share.png"
-				/>
-				<meta
-					property="twitter:image"
-					content="https://brewdog-recipes.surge.sh/share.png"
-				/>
-				<meta property="twitter:card" content="summary_large_image" />
 			</Helmet>
 			<Filters />
 			<BeerList />
