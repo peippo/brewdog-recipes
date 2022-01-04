@@ -9,13 +9,14 @@ import { ReactComponent as HopsIcon } from "./icons/icon-hops.svg";
 import { ReactComponent as YeastIcon } from "./icons/icon-yeast.svg";
 import Bubbles from "./components/Bubbles";
 import Loader from "./components/Loader";
+import Error from "./components/Error";
 
 const Beer = () => {
 	const { beerId } = useParams();
 	const { data: beer, isLoading, isError } = useBeer(beerId);
 
 	if (isLoading) return <Loader />;
-	if (isError) return <p>Error!</p>;
+	if (isError) return <Error />;
 
 	const ebc = beer.ebc ? beer.ebc : 100;
 	const hasImage =

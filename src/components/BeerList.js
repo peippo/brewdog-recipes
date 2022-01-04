@@ -3,12 +3,13 @@ import useBeer from "../hooks/useBeer";
 import BeerItem from "./BeerItem";
 import Loader from "./Loader";
 import NoHits from "./NoHits";
+import Error from "./Error";
 
 const BeerList = () => {
 	const { data: beers, isLoading, isError } = useBeer();
 
 	if (isLoading) return <Loader />;
-	if (isError) return <p>Error!</p>;
+	if (isError) return <Error />;
 	if (beers.length === 0) return <NoHits />;
 
 	return (
