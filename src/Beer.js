@@ -1,5 +1,6 @@
 import styled from "styled-components";
 import { useParams } from "react-router-dom";
+import { Helmet } from "react-helmet";
 import useBeer from "./hooks/useBeer";
 import { getBeerColor } from "./utils";
 import "./tables.css";
@@ -23,232 +24,247 @@ const Beer = () => {
 		!beer.image_url.includes("cask.png");
 
 	return (
-		<Container>
-			<section>
-				<Header ebc={ebc}>
-					<div>
-						<Name>{beer.name}</Name>
-						<Tagline>{beer.tagline}</Tagline>
-					</div>
-					<BubblesWrapper>
-						<Bubbles />
-					</BubblesWrapper>
-					<DetailBoxes>
-						<DetailBox ebc={ebc}>
-							<CustomAbbr title="Alcohol By Volume">ABV</CustomAbbr>
-							<span>{beer.abv}%</span>
-						</DetailBox>
-						<DetailBox ebc={ebc}>
-							<CustomAbbr title="International Bitterness Units">
-								IBU
-							</CustomAbbr>{" "}
-							<span>{beer.ibu}</span>
-						</DetailBox>
-					</DetailBoxes>
-				</Header>
-				<Cols>
-					<Col width={50}>
-						<Description>{beer.description}</Description>
-					</Col>
-					<Col width={35}>
-						<table>
-							<tbody>
-								<tr>
-									<th>Volume</th>
-									<td>
-										{beer.volume.value} {beer.volume.unit}
-									</td>
-								</tr>
-								<tr>
-									<th>Boil volume</th>
-									<td>
-										{beer.boil_volume.value} {beer.boil_volume.unit}
-									</td>
-								</tr>
-								<tr>
-									<th>
-										<abbr title="Alcohol By Volume">ABV</abbr>
-									</th>
-									<td>{beer.abv}%</td>
-								</tr>
-								<tr>
-									<th>
-										Target <abbr title="Final Gravity">FG</abbr>
-									</th>
-									<td>{beer.target_fg}</td>
-								</tr>
-								<tr>
-									<th>
-										Target <abbr title="Original Gravity">OG</abbr>
-									</th>
-									<td>{beer.target_og}</td>
-								</tr>
-								<tr>
-									<th>
-										<abbr title="European Brewery Convention (color unit)">
-											EBC
-										</abbr>
-									</th>
-									<td>{beer.ebc}</td>
-								</tr>
-								<tr>
-									<th>
-										<abbr title="Standard Reference Method (color unit)">
-											SRM
-										</abbr>
-									</th>
-									<td>{beer.srm}</td>
-								</tr>
-								<tr>
-									<th>Attenuation level</th>
-									<td>{beer.attenuation_level}%</td>
-								</tr>
-							</tbody>
-						</table>
-					</Col>
-					<Col width={15}>
-						{hasImage && (
-							<DesktopImage src={beer.image_url} loading="lazy" />
-						)}
-					</Col>
-				</Cols>
-			</section>
+		<>
+			<Helmet>
+				<title>{beer.name}</title>
+				<meta name="title" content={beer.name} />
+				<meta name="description" content={beer.description} />
+				<meta property="og:image" content={beer.image_url} />
+				<meta property="twitter:image" content={beer.image_url} />
+				<meta property="twitter:card" content="summary_large_image" />
+			</Helmet>
+			<Container>
+				<section>
+					<Header ebc={ebc}>
+						<div>
+							<Name>{beer.name}</Name>
+							<Tagline>{beer.tagline}</Tagline>
+						</div>
+						<BubblesWrapper>
+							<Bubbles />
+						</BubblesWrapper>
+						<DetailBoxes>
+							<DetailBox ebc={ebc}>
+								<CustomAbbr title="Alcohol By Volume">ABV</CustomAbbr>
+								<span>{beer.abv}%</span>
+							</DetailBox>
+							<DetailBox ebc={ebc}>
+								<CustomAbbr title="International Bitterness Units">
+									IBU
+								</CustomAbbr>{" "}
+								<span>{beer.ibu}</span>
+							</DetailBox>
+						</DetailBoxes>
+					</Header>
+					<Cols>
+						<Col width={50}>
+							<Description>{beer.description}</Description>
+						</Col>
+						<Col width={35}>
+							<table>
+								<tbody>
+									<tr>
+										<th>Volume</th>
+										<td>
+											{beer.volume.value} {beer.volume.unit}
+										</td>
+									</tr>
+									<tr>
+										<th>Boil volume</th>
+										<td>
+											{beer.boil_volume.value}{" "}
+											{beer.boil_volume.unit}
+										</td>
+									</tr>
+									<tr>
+										<th>
+											<abbr title="Alcohol By Volume">ABV</abbr>
+										</th>
+										<td>{beer.abv}%</td>
+									</tr>
+									<tr>
+										<th>
+											Target <abbr title="Final Gravity">FG</abbr>
+										</th>
+										<td>{beer.target_fg}</td>
+									</tr>
+									<tr>
+										<th>
+											Target <abbr title="Original Gravity">OG</abbr>
+										</th>
+										<td>{beer.target_og}</td>
+									</tr>
+									<tr>
+										<th>
+											<abbr title="European Brewery Convention (color unit)">
+												EBC
+											</abbr>
+										</th>
+										<td>{beer.ebc}</td>
+									</tr>
+									<tr>
+										<th>
+											<abbr title="Standard Reference Method (color unit)">
+												SRM
+											</abbr>
+										</th>
+										<td>{beer.srm}</td>
+									</tr>
+									<tr>
+										<th>Attenuation level</th>
+										<td>{beer.attenuation_level}%</td>
+									</tr>
+								</tbody>
+							</table>
+						</Col>
+						<Col width={15}>
+							{hasImage && (
+								<DesktopImage src={beer.image_url} loading="lazy" />
+							)}
+						</Col>
+					</Cols>
+				</section>
 
-			<section>
-				<SectionHeading>Ingredients &amp; process</SectionHeading>
+				<section>
+					<SectionHeading>Ingredients &amp; process</SectionHeading>
 
-				<Cols>
-					<Col width={30}>
-						<BackgroundGradient>
-							<IconHeading>
-								<MaltIcon />
-								<SubHeading>Malt</SubHeading>
-							</IconHeading>
-						</BackgroundGradient>
-						<table>
-							<thead>
-								<tr>
-									<th>Type</th>
-									<th>kg</th>
-								</tr>
-							</thead>
-							<tbody>
-								{beer.ingredients.malt.map((row, index) => {
-									return (
-										<tr key={index}>
-											<td>
-												<strong>{row.name}</strong>
-											</td>
-											<td>{row.amount.value}</td>
-										</tr>
-									);
-								})}
-							</tbody>
-						</table>
-					</Col>
-					<Col width={45}>
-						<BackgroundGradient>
-							<IconHeading>
-								<HopsIcon />
-								<SubHeading>Hops</SubHeading>
-							</IconHeading>
-						</BackgroundGradient>
-						<table>
-							<thead>
-								<tr>
-									<th>Variety</th>
-									<th>g</th>
-									<th>Add</th>
-									<th>
-										Attr<HideInMobile>ibute</HideInMobile>
-									</th>
-								</tr>
-							</thead>
-							<tbody>
-								{beer.ingredients.hops.map((row, index) => {
-									return (
-										<tr key={index}>
-											<td>
-												<strong>{row.name}</strong>
-											</td>
-											<td>{row.amount.value}</td>
-											<td>{row.add}</td>
-											<td>{row.attribute}</td>
-										</tr>
-									);
-								})}
-							</tbody>
-						</table>
-					</Col>
-					<Col width={25}>
-						<BackgroundGradient>
-							<IconHeading>
-								<YeastIcon />
-								<SubHeading>Yeast</SubHeading>
-							</IconHeading>
-						</BackgroundGradient>
+					<Cols>
+						<Col width={30}>
+							<BackgroundGradient>
+								<IconHeading>
+									<MaltIcon />
+									<SubHeading>Malt</SubHeading>
+								</IconHeading>
+							</BackgroundGradient>
+							<table>
+								<thead>
+									<tr>
+										<th>Type</th>
+										<th>kg</th>
+									</tr>
+								</thead>
+								<tbody>
+									{beer.ingredients.malt.map((row, index) => {
+										return (
+											<tr key={index}>
+												<td>
+													<strong>{row.name}</strong>
+												</td>
+												<td>{row.amount.value}</td>
+											</tr>
+										);
+									})}
+								</tbody>
+							</table>
+						</Col>
+						<Col width={45}>
+							<BackgroundGradient>
+								<IconHeading>
+									<HopsIcon />
+									<SubHeading>Hops</SubHeading>
+								</IconHeading>
+							</BackgroundGradient>
+							<table>
+								<thead>
+									<tr>
+										<th>Variety</th>
+										<th>g</th>
+										<th>Add</th>
+										<th>
+											Attr<HideInMobile>ibute</HideInMobile>
+										</th>
+									</tr>
+								</thead>
+								<tbody>
+									{beer.ingredients.hops.map((row, index) => {
+										return (
+											<tr key={index}>
+												<td>
+													<strong>{row.name}</strong>
+												</td>
+												<td>{row.amount.value}</td>
+												<td>{row.add}</td>
+												<td>{row.attribute}</td>
+											</tr>
+										);
+									})}
+								</tbody>
+							</table>
+						</Col>
+						<Col width={25}>
+							<BackgroundGradient>
+								<IconHeading>
+									<YeastIcon />
+									<SubHeading>Yeast</SubHeading>
+								</IconHeading>
+							</BackgroundGradient>
 
-						<Text>{beer.ingredients.yeast}</Text>
-					</Col>
-				</Cols>
+							<Text>{beer.ingredients.yeast}</Text>
+						</Col>
+					</Cols>
 
-				<Cols>
-					<Col>
-						<BackgroundGradient>
-							<SubHeading>Method / timings</SubHeading>
-						</BackgroundGradient>
-						<table>
-							<thead>
-								<tr>
-									<th>Method</th>
-									<th>Temp</th>
-									<th>Time</th>
-								</tr>
-							</thead>
-							<tbody>
-								{beer.method.mash_temp.map((row, index) => {
-									return (
-										<tr key={index}>
-											<th>Mash temp</th>
-											<td>
-												{row.temp.value} {row.temp.unit}
-											</td>
-											<td>{row.duration} mins</td>
-										</tr>
-									);
-								})}
-								<tr>
-									<th>Fermentation</th>
-									<td>
-										{beer.method.fermentation.temp.value}{" "}
-										{beer.method.fermentation.temp.unit}
-									</td>
-								</tr>
-							</tbody>
-						</table>
-					</Col>
-					<Col>
-						<BackgroundGradient>
-							<SubHeading>Brewer's tip</SubHeading>
-						</BackgroundGradient>
-						<BrewersText>{beer.brewers_tips}</BrewersText>
-						<BearIllustration src="/illustration-bear.png" alt="" />
-					</Col>
-				</Cols>
-			</section>
+					<Cols>
+						<Col>
+							<BackgroundGradient>
+								<SubHeading>Method &amp; timings</SubHeading>
+							</BackgroundGradient>
+							<table>
+								<thead>
+									<tr>
+										<th>Method</th>
+										<th>Temp</th>
+										<th>Time</th>
+									</tr>
+								</thead>
+								<tbody>
+									{beer.method.mash_temp.map((row, index) => {
+										return (
+											<tr key={index}>
+												<th>Mash temp</th>
+												<td>
+													{row.temp.value} {row.temp.unit}
+												</td>
+												{row.duration ? (
+													<td>{row.duration} mins</td>
+												) : (
+													<td>&mdash;</td>
+												)}
+											</tr>
+										);
+									})}
+									<tr>
+										<th>Fermentation</th>
+										<td>
+											{beer.method.fermentation.temp.value}{" "}
+											{beer.method.fermentation.temp.unit}
+										</td>
+									</tr>
+								</tbody>
+							</table>
+						</Col>
+						<Col>
+							<BackgroundGradient>
+								<SubHeading>Brewer's tip</SubHeading>
+							</BackgroundGradient>
+							<BrewersText>{beer.brewers_tips}</BrewersText>
+							<BearIllustration src="/illustration-bear.png" alt="" />
+						</Col>
+					</Cols>
+				</section>
 
-			<section>
-				<SectionHeading>Food pairing</SectionHeading>
-				<FoodPairing>
-					<RabbitIllustration src="/illustration-rabbit.png" alt="" />
-					<FoodList>
-						{beer.food_pairing.map((food, index) => {
-							return <FoodItem key={index}>{food}</FoodItem>;
-						})}
-					</FoodList>
-				</FoodPairing>
-			</section>
-		</Container>
+				<section>
+					<SectionHeading>Food pairing</SectionHeading>
+					<FoodPairing>
+						<RabbitIllustration src="/illustration-rabbit.png" alt="" />
+						<FoodList>
+							{beer.food_pairing.map((food, index) => {
+								return <FoodItem key={index}>{food}</FoodItem>;
+							})}
+						</FoodList>
+					</FoodPairing>
+				</section>
+			</Container>
+		</>
 	);
 };
 
