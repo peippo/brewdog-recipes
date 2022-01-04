@@ -35,10 +35,14 @@ const Beer = () => {
 					</BubblesWrapper>
 					<DetailBoxes>
 						<DetailBox ebc={ebc}>
-							ABV <span>{beer.abv}%</span>
+							<CustomAbbr title="Alcohol By Volume">ABV</CustomAbbr>
+							<span>{beer.abv}%</span>
 						</DetailBox>
 						<DetailBox ebc={ebc}>
-							IBU <span>{beer.ibu}</span>
+							<CustomAbbr title="International Bitterness Units">
+								IBU
+							</CustomAbbr>{" "}
+							<span>{beer.ibu}</span>
 						</DetailBox>
 					</DetailBoxes>
 				</Header>
@@ -62,23 +66,37 @@ const Beer = () => {
 									</td>
 								</tr>
 								<tr>
-									<th>ABV</th>
+									<th>
+										<abbr title="Alcohol By Volume">ABV</abbr>
+									</th>
 									<td>{beer.abv}%</td>
 								</tr>
 								<tr>
-									<th>Target FG</th>
+									<th>
+										Target <abbr title="Final Gravity">FG</abbr>
+									</th>
 									<td>{beer.target_fg}</td>
 								</tr>
 								<tr>
-									<th>Target OG</th>
+									<th>
+										Target <abbr title="Original Gravity">OG</abbr>
+									</th>
 									<td>{beer.target_og}</td>
 								</tr>
 								<tr>
-									<th>EBC</th>
+									<th>
+										<abbr title="European Brewery Convention (color unit)">
+											EBC
+										</abbr>
+									</th>
 									<td>{beer.ebc}</td>
 								</tr>
 								<tr>
-									<th>SRM</th>
+									<th>
+										<abbr title="Standard Reference Method (color unit)">
+											SRM
+										</abbr>
+									</th>
 									<td>{beer.srm}</td>
 								</tr>
 								<tr>
@@ -115,9 +133,9 @@ const Beer = () => {
 								</tr>
 							</thead>
 							<tbody>
-								{beer.ingredients.malt.map((row) => {
+								{beer.ingredients.malt.map((row, index) => {
 									return (
-										<tr>
+										<tr key={index}>
 											<td>
 												<strong>{row.name}</strong>
 											</td>
@@ -147,9 +165,9 @@ const Beer = () => {
 								</tr>
 							</thead>
 							<tbody>
-								{beer.ingredients.hops.map((row) => {
+								{beer.ingredients.hops.map((row, index) => {
 									return (
-										<tr>
+										<tr key={index}>
 											<td>
 												<strong>{row.name}</strong>
 											</td>
@@ -188,9 +206,9 @@ const Beer = () => {
 								</tr>
 							</thead>
 							<tbody>
-								{beer.method.mash_temp.map((row) => {
+								{beer.method.mash_temp.map((row, index) => {
 									return (
-										<tr>
+										<tr key={index}>
 											<th>Mash temp</th>
 											<td>
 												{row.temp.value} {row.temp.unit}
@@ -224,8 +242,8 @@ const Beer = () => {
 				<FoodPairing>
 					<RabbitIllustration src="/illustration-rabbit.png" alt="" />
 					<FoodList>
-						{beer.food_pairing.map((food) => {
-							return <FoodItem>{food}</FoodItem>;
+						{beer.food_pairing.map((food, index) => {
+							return <FoodItem key={index}>{food}</FoodItem>;
 						})}
 					</FoodList>
 				</FoodPairing>
@@ -501,4 +519,7 @@ const HideInMobile = styled.span`
 	}
 `;
 
+const CustomAbbr = styled.abbr`
+	border-bottom: 1px dashed currentColor;
+`;
 export default Beer;

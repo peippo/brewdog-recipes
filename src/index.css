@@ -60,6 +60,11 @@ a {
 	color: var(--color-primary);
 }
 
+abbr {
+	border-bottom: 1px dashed var(--color-secondary);
+	text-decoration: none;
+}
+
 .MuiSlider-markLabel {
 	color: #ffffff !important;
 }
