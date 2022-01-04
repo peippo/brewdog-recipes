@@ -1,9 +1,15 @@
 table {
 	border-collapse: collapse;
-	font-size: 1rem;
+	font-size: 0.875rem;
 	font-family: var(--font-family-base);
 	text-align: left;
 	width: 100%;
+}
+
+@media (min-width: 576px) {
+	table {
+		font-size: 1rem;
+	}
 }
 
 table thead tr {
@@ -15,7 +21,14 @@ table thead tr {
 
 table th,
 table td {
-	padding: 0.75rem 1rem;
+	padding: 0.5rem 0.75rem;
+}
+
+@media (min-width: 576px) {
+	table th,
+	table td {
+		padding: 0.75rem 1rem;
+	}
 }
 
 table tbody tr:not(:last-of-type) {
