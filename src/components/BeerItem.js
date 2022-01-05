@@ -12,9 +12,10 @@ const BeerItem = ({ beer }) => {
 	return (
 		<Item ebc={ebc}>
 			<StyledLink to={`/beer/${beer.id}`} ebc={ebc}>
-				<Name>
-					{beer.name} <Abv>{beer.abv}%</Abv>
-				</Name>
+				<Flex>
+					<Name>{beer.name}</Name>
+					<Abv>{beer.abv}%</Abv>
+				</Flex>
 				<Tagline>{beer.tagline}</Tagline>
 
 				{hasImage && <Image src={beer.image_url} loading="lazy" />}
@@ -56,12 +57,29 @@ const StyledLink = styled(Link)`
 		bottom: 0;
 		left: 0;
 	}
+
+	&:focus {
+		outline: 0;
+
+		h2 {
+			text-decoration: underline;
+		}
+	}
+
+	&:focus:not(:focus-visible) {
+		h2 {
+			text-decoration: none;
+		}
+	}
+`;
+
+const Flex = styled.div`
+	display: flex;
+	align-items: center;
 `;
 
 const Name = styled.h2`
 	margin: 0;
-	display: flex;
-	align-items: center;
 	font-size: 28px;
 	line-height: 1;
 `;
@@ -71,9 +89,7 @@ const Tagline = styled.p`
 `;
 
 const Abv = styled.span`
-	display: inline-flex;
-	align-items: center;
-	justify-content: center;
+	font-family: var(--font-family-heading);
 	font-size: 20px;
 	padding-left: 0.75rem;
 	margin-left: 0.75rem;

@@ -5,13 +5,13 @@ const Header = () => {
 	return (
 		<StyledHeader>
 			<Container>
-				<Link to="/">
+				<StyledLink to="/">
 					<Logo
 						srcSet="/logo.png, /logo_2x.png 2x"
 						src="/logo.png"
 						alt="BrewDog Brew Recipes"
 					/>
-				</Link>
+				</StyledLink>
 			</Container>
 		</StyledHeader>
 	);
@@ -32,11 +32,14 @@ const Container = styled.div`
 	max-width: 1200px;
 `;
 
+const StyledLink = styled(Link)`
+	margin-top: 1.5rem;
+`;
+
 const Logo = styled.img`
 	max-width: 500px;
 	width: 100%;
 	height: auto;
-	padding-top: 1.5rem;
 	display: block;
 `;
 

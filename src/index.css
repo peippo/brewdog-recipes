@@ -60,6 +60,14 @@ a {
 	color: var(--color-primary);
 }
 
+a:focus {
+	outline: 1px dashed currentColor;
+}
+
+a:focus:not(:focus-visible) {
+	outline: none;
+}
+
 abbr {
 	border-bottom: 1px dashed var(--color-secondary);
 	text-decoration: none;
@@ -79,6 +87,10 @@ abbr {
 }
 
 .MuiSlider-thumb:hover {
+	box-shadow: 0px 0px 0px 8px rgb(220 166 12 / 25%) !important;
+}
+
+.MuiSlider-thumb.Mui-focusVisible {
 	box-shadow: 0px 0px 0px 8px rgb(220 166 12 / 25%) !important;
 }
 
