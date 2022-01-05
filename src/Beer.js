@@ -200,7 +200,9 @@ const Beer = () => {
 								</IconHeading>
 							</BackgroundGradient>
 
-							<Text>{beer.ingredients.yeast}</Text>
+							<Text>
+								<strong>{beer.ingredients.yeast}</strong>
+							</Text>
 						</Col>
 					</Cols>
 
@@ -452,7 +454,7 @@ const BrewersText = styled.p`
 	position: relative;
 	font-size: 15px;
 
-	@media (min-width: 992px) {
+	@media (min-width: 576px) {
 		margin-right: 11rem;
 		margin-left: 1rem;
 	}
@@ -528,7 +530,7 @@ const BearIllustration = styled.img`
 	top: -10px;
 	width: 150px;
 
-	@media (min-width: 992px) {
+	@media (min-width: 576px) {
 		width: 200px;
 		right: -50px;
 		top: -50px;
@@ -537,11 +539,11 @@ const BearIllustration = styled.img`
 
 const RabbitIllustration = styled.img`
 	position: absolute;
-	left: -10px;
+	left: -30px;
 	top: -10px;
 	width: 150px;
 
-	@media (min-width: 992px) {
+	@media (min-width: 576px) {
 		width: 200px;
 		left: -50px;
 		top: -80px;
@@ -559,7 +561,11 @@ const FoodList = styled.ul`
 	flex-wrap: wrap;
 	list-style-type: none;
 	margin: 0 0 100px 0;
-	padding: 0 0 0 100px;
+	padding: 0 0 0 90px;
+
+	@media (min-width: 576px) {
+		padding: 0 0 0 120px;
+	}
 `;
 
 const FoodItem = styled.li`
