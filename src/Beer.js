@@ -357,6 +357,8 @@ const DetailBox = styled.p`
 	z-index: 10;
 	background-color: ${(props) => getBeerColor(props.ebc)};
 	opacity: 0.85;
+	text-align: center;
+	min-width: 100px;
 
 	span {
 		font-weight: 400;
@@ -366,7 +368,7 @@ const DetailBox = styled.p`
 `;
 
 const Description = styled.p`
-	font-size: 20px;
+	font-size: 18px;
 	line-height: 1.5;
 
 	&:first-letter {
@@ -378,13 +380,14 @@ const Description = styled.p`
 	}
 
 	@media (min-width: 992px) {
+		font-size: 20px;
 		padding-left: 2rem;
 	}
 `;
 
 const SectionHeading = styled.h2`
 	font-size: 32px;
-	margin: 3rem 0 0;
+	margin: 3rem 0 1.5rem;
 	color: var(--color-primary);
 	text-align: center;
 	position: relative;
@@ -416,7 +419,6 @@ const BackgroundGradient = styled.div`
 		var(--color-background),
 		rgba(0, 0, 0, 0.01)
 	);
-	border-radius: 10px 10px 0 0;
 	padding: 0.5rem 1rem;
 `;
 
@@ -440,8 +442,47 @@ const Text = styled.p`
 
 const BrewersText = styled.p`
 	margin-top: 0;
-	padding: 0 10rem 0 1rem;
+	padding: 1rem 1.5rem 1.5rem;
+	margin-right: 9rem;
+	margin-left: -0.5rem;
 	line-height: 1.4;
+	background-color: #5d3d30;
+	background: linear-gradient(230deg, #5d3d30, #5d3d301f 90%);
+	border-bottom: 6px solid var(--color-background);
+	position: relative;
+	font-size: 15px;
+
+	@media (min-width: 992px) {
+		margin-right: 11rem;
+		margin-left: 1rem;
+	}
+
+	&:after,
+	&:before {
+		content: "";
+		position: absolute;
+		z-index: -1;
+	}
+
+	&:after {
+		top: 0;
+		right: -30px;
+		width: 30px;
+		height: 30px;
+		border-top: 30px solid #5d3d30;
+		border-right: 30px solid transparent;
+	}
+
+	&:before {
+		bottom: 5px;
+		left: 5px;
+		width: 70%;
+		height: 70%;
+		background-color: transparent;
+		border-bottom: 1px solid var(--color-secondary);
+		border-left: 1px solid var(--color-secondary);
+		opacity: 0.4;
+	}
 `;
 
 const Cols = styled.div`
@@ -483,7 +524,7 @@ const DesktopImage = styled.img`
 
 const BearIllustration = styled.img`
 	position: absolute;
-	right: -10px;
+	right: -40px;
 	top: -10px;
 	width: 150px;
 
@@ -526,6 +567,7 @@ const FoodItem = styled.li`
 	margin: 0.5rem;
 	background-color: var(--color-background);
 	border: 1px solid rgba(255, 255, 255, 0.25);
+	font-size: 15px;
 `;
 
 const HideInMobile = styled.span`

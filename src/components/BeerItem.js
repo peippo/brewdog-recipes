@@ -41,6 +41,7 @@ const Item = styled.li`
 
 		img {
 			transform: translateY(-75%) rotate(5deg) translateZ(0);
+			filter: drop-shadow(10px 5px 5px rgba(32, 20, 20, 0.5));
 		}
 	}
 `;

@@ -28,6 +28,7 @@ const Grid = styled.ul`
 	list-style-type: none;
 	padding: 0 1.5rem;
 	margin: 0 auto 75px;
+	width: 100%;
 	max-width: 1500px;
 
 	@media (min-width: 576px) {

@@ -90,7 +90,8 @@ abbr {
 	box-shadow: 0px 0px 0px 8px rgb(220 166 12 / 25%) !important;
 }
 
-.MuiSlider-thumb.Mui-focusVisible {
+.MuiSlider-thumb.Mui-focusVisible,
+.MuiSlider-thumb.Mui-active {
 	box-shadow: 0px 0px 0px 8px rgb(220 166 12 / 25%) !important;
 }
 
