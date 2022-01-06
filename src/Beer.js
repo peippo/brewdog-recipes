@@ -29,10 +29,6 @@ const Beer = () => {
 			<Helmet>
 				<title>{beer.name}</title>
 				<meta name="title" content={beer.name} />
-				<meta name="description" content={beer.description} />
-				<meta property="og:image" content={beer.image_url} />
-				<meta property="twitter:image" content={beer.image_url} />
-				<meta property="twitter:card" content="summary_large_image" />
 			</Helmet>
 			<Container>
 				<section>
