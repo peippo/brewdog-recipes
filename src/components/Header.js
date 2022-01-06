@@ -10,9 +10,9 @@ const Header = () => {
 		<StyledHeader>
 			<Container>
 				{location.pathname === "/" ? (
-					<h1>
+					<Heading>
 						<Logo />
-					</h1>
+					</Heading>
 				) : (
 					<Link to="/">
 						<Logo />
@@ -36,6 +36,10 @@ const Container = styled.div`
 	padding: 0 1.5rem;
 	margin: 0 auto;
 	max-width: 1200px;
+`;
+
+const Heading = styled.h1`
+	margin: 0;
 `;
 
 export default Header;
