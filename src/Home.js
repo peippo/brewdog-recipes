@@ -10,8 +10,10 @@ const Home = () => {
 				<meta name="title" content="BrewDog Brew Recipes" />
 				<meta name="description" content="Homebrewing for punks" />
 			</Helmet>
-			<Filters />
-			<BeerList />
+			<main>
+				<Filters />
+				<BeerList />
+			</main>
 		</>
 	);
 };

@@ -62,7 +62,7 @@ const Beer = () => {
 							<Description>{beer.description}</Description>
 						</Col>
 						<Col width={35}>
-							<table>
+							<table aria-label="Basics">
 								<tbody>
 									<tr>
 										<th>Volume</th>
@@ -137,7 +137,7 @@ const Beer = () => {
 									<SubHeading>Malt</SubHeading>
 								</IconHeading>
 							</BackgroundGradient>
-							<table>
+							<table aria-label="Malt ingredients">
 								<thead>
 									<tr>
 										<th>Type</th>
@@ -165,7 +165,7 @@ const Beer = () => {
 									<SubHeading>Hops</SubHeading>
 								</IconHeading>
 							</BackgroundGradient>
-							<table>
+							<table aria-label="Hops ingredients">
 								<thead>
 									<tr>
 										<th>Variety</th>
@@ -209,9 +209,11 @@ const Beer = () => {
 					<Cols>
 						<Col>
 							<BackgroundGradient>
-								<SubHeading>Method &amp; timings</SubHeading>
+								<SubHeading id="method-heading">
+									Method &amp; timings
+								</SubHeading>
 							</BackgroundGradient>
-							<table>
+							<table aria-labelledby="method-heading">
 								<thead>
 									<tr>
 										<th>Method</th>
@@ -256,10 +258,10 @@ const Beer = () => {
 				</section>
 
 				<section>
-					<SectionHeading>Food pairing</SectionHeading>
+					<SectionHeading id="food-heading">Food pairing</SectionHeading>
 					<FoodPairing>
 						<RabbitIllustration src="/illustration-rabbit.png" alt="" />
-						<FoodList>
+						<FoodList aria-labelledby="food-heading">
 							{beer.food_pairing.map((food, index) => {
 								return <FoodItem key={index}>{food}</FoodItem>;
 							})}

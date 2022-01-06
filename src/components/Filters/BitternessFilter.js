@@ -97,14 +97,6 @@ const BitternessFilter = () => {
 		}
 	};
 
-	const thumbAriaValueText = (value, thumbIndex) => {
-		if (thumbIndex === 0) {
-			return `Minimum bitterness ${value}`;
-		} else {
-			return `Maximum bitterness ${value}`;
-		}
-	};
-
 	return (
 		<Container>
 			<Label id="bitterness-label">Bitterness</Label>
@@ -116,7 +108,6 @@ const BitternessFilter = () => {
 				onChangeCommitted={handleCommittedChange}
 				aria-labelledby="bitterness-label"
 				getAriaLabel={thumbAriaLabel}
-				getAriaValueText={thumbAriaValueText}
 				valueLabelDisplay="auto"
 				marks={marks}
 				sx={{
@@ -133,7 +124,7 @@ const Container = styled.div`
 	width: 100%;
 `;
 
-const Label = styled.p`
+const Label = styled.h2`
 	font-family: var(--font-family-heading);
 	text-transform: uppercase;
 	font-size: 24px;

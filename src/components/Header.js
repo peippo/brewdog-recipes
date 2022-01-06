@@ -1,17 +1,23 @@
 import styled from "styled-components";
 import { Link } from "react-router-dom";
+import { useLocation } from "react-router-dom";
+import Logo from "./Logo";
 
 const Header = () => {
+	const location = useLocation();
+
 	return (
 		<StyledHeader>
 			<Container>
-				<StyledLink to="/">
-					<Logo
-						srcSet="/logo.png, /logo_2x.png 2x"
-						src="/logo.png"
-						alt="BrewDog Brew Recipes"
-					/>
-				</StyledLink>
+				{location.pathname === "/" ? (
+					<h1>
+						<Logo />
+					</h1>
+				) : (
+					<Link to="/">
+						<Logo />
+					</Link>
+				)}
 			</Container>
 		</StyledHeader>
 	);
@@ -30,17 +36,6 @@ const Container = styled.div`
 	padding: 0 1.5rem;
 	margin: 0 auto;
 	max-width: 1200px;
-`;
-
-const StyledLink = styled(Link)`
-	margin-top: 1.5rem;
-`;
-
-const Logo = styled.img`
-	max-width: 500px;
-	width: 100%;
-	height: auto;
-	display: block;
 `;
 
 export default Header;

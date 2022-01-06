@@ -31,14 +31,6 @@ const StrengthFilter = () => {
 		}
 	};
 
-	const thumbAriaValueText = (value, thumbIndex) => {
-		if (thumbIndex === 0) {
-			return `Minimum volume ${value}%`;
-		} else {
-			return `Maximum volume ${value}%`;
-		}
-	};
-
 	const marks = [
 		{
 			value: 0,
@@ -81,7 +73,6 @@ const StrengthFilter = () => {
 				onChangeCommitted={handleCommittedChange}
 				aria-labelledby="strength-label"
 				getAriaLabel={thumbAriaLabel}
-				getAriaValueText={thumbAriaValueText}
 				valueLabelDisplay="auto"
 				valueLabelFormat={(value) => `${value}%`}
 				marks={marks}
@@ -99,7 +90,7 @@ const Container = styled.div`
 	width: 100%;
 `;
 
-const Label = styled.p`
+const Label = styled.h2`
 	font-family: var(--font-family-heading);
 	text-transform: uppercase;
 	font-size: 24px;

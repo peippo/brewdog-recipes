@@ -17,7 +17,7 @@ const Filters = () => {
 	);
 };
 
-const Container = styled.div`
+const Container = styled.header`
 	display: flex;
 	justify-content: space-between;
 	flex-direction: column;

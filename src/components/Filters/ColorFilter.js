@@ -4,6 +4,7 @@ import Slider from "@mui/material/Slider";
 import { useRecoilState } from "recoil";
 import { colorAtom } from "../../state/color";
 import { INITIAL_COLOR } from "../../state/initialValues";
+import { getBeerColorName } from "../../utils";
 import "./ColorFilter.css";
 
 const ColorFilter = () => {
@@ -38,18 +39,14 @@ const ColorFilter = () => {
 
 	const thumbAriaLabel = (thumbIndex) => {
 		if (thumbIndex === 0) {
-			return `Minimum EBC`;
+			return `Color starting from`;
 		} else {
-			return `Maximum EBC`;
+			return `Color ending to`;
 		}
 	};
 
-	const thumbAriaValueText = (value, thumbIndex) => {
-		if (thumbIndex === 0) {
-			return `Minimum EBC ${value}%`;
-		} else {
-			return `Maximum EBC ${value}%`;
-		}
+	const thumbAriaValueText = (value) => {
+		return getBeerColorName(value);
 	};
 
 	return (
@@ -80,7 +77,7 @@ const Container = styled.div`
 	width: 100%;
 `;
 
-const Label = styled.p`
+const Label = styled.h2`
 	font-family: var(--font-family-heading);
 	text-transform: uppercase;
 	font-size: 24px;

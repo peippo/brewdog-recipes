@@ -51,6 +51,47 @@ export const getBeerColor = (ebc) => {
 	return color;
 };
 
+export const getBeerColorName = (ebc) => {
+	let name;
+
+	switch (true) {
+		case ebc >= 79:
+			name = "Imperial Stout";
+			break;
+		case ebc >= 57:
+			name = "Stout";
+			break;
+		case ebc >= 47:
+			name = "Porter";
+			break;
+		case ebc >= 39:
+			name = "Brown Ale";
+			break;
+		case ebc >= 33:
+			name = "Amber Ale";
+			break;
+		case ebc >= 20:
+			name = "English Bitter";
+			break;
+		case ebc >= 12:
+			name = "India Pale Ale";
+			break;
+		case ebc >= 8:
+			name = "Weissbier";
+			break;
+		case ebc >= 6:
+			name = "Blonde Ale";
+			break;
+		case ebc >= 0:
+			name = "Pale Lager";
+			break;
+		default:
+			break;
+	}
+
+	return name;
+};
+
 export const removeSentencePeriod = (string) => {
 	if (string.charAt(string.length - 1) === ".") {
 		return string.slice(0, -1);

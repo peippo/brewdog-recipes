@@ -13,7 +13,7 @@ const BeerList = () => {
 	if (beers.length === 0) return <NoHits />;
 
 	return (
-		<Grid>
+		<Grid aria-label="List of recipes">
 			{beers.map((beer) => (
 				<BeerItem key={beer.id} beer={beer} />
 			))}

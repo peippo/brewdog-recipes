@@ -18,7 +18,7 @@ const BeerItem = ({ beer }) => {
 				</Flex>
 				<Tagline>{removeSentencePeriod(beer.tagline)}</Tagline>
 
-				{hasImage && <Image src={beer.image_url} loading="lazy" />}
+				{hasImage && <Image src={beer.image_url} loading="lazy" alt="" />}
 			</StyledLink>
 		</Item>
 	);
