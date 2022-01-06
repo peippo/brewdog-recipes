@@ -15,7 +15,9 @@ const Header = () => {
 					</Heading>
 				) : (
 					<Link to="/">
-						<Logo />
+						<Heading>
+							<Logo />
+						</Heading>
 					</Link>
 				)}
 			</Container>

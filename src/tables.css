@@ -15,7 +15,7 @@ table {
 table thead tr {
 	background-color: var(--color-secondary);
 	border-bottom: 4px solid var(--color-background);
-	color: #ffffff;
+	color: #080505;
 	text-align: left;
 }
 

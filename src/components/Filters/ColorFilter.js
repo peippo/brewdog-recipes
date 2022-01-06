@@ -77,7 +77,7 @@ const Container = styled.div`
 	width: 100%;
 `;
 
-const Label = styled.h2`
+const Label = styled.h3`
 	font-family: var(--font-family-heading);
 	text-transform: uppercase;
 	font-size: 24px;

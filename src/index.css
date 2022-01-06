@@ -22,8 +22,7 @@ body {
 	-webkit-font-smoothing: antialiased;
 	-moz-osx-font-smoothing: grayscale;
 	overflow-x: hidden;
-	background-color: var(--color-background);
-	background: url("../public/background.jpg");
+	background: url("../public/background.jpg"), var(--color-background);
 	background-size: 800px;
 	color: #ffffff;
 	box-shadow: 0 400px 100px rgba(0, 0, 0, 0.33) inset;
@@ -71,6 +70,19 @@ a:focus:not(:focus-visible) {
 abbr {
 	border-bottom: 1px dashed var(--color-secondary);
 	text-decoration: none;
+}
+
+.screen-reader-text {
+	border: 0;
+	clip: rect(1px, 1px, 1px, 1px);
+	clip-path: inset(50%);
+	height: 1px;
+	margin: -1px;
+	overflow: hidden;
+	padding: 0;
+	position: absolute;
+	width: 1px;
+	word-wrap: normal !important;
 }
 
 .MuiSlider-markLabel {

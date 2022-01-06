@@ -6,6 +6,7 @@ import ColorFilter from "./ColorFilter";
 const Filters = () => {
 	return (
 		<Container>
+			<h2 className="screen-reader-text">Filter recipes</h2>
 			<DoubleRow>
 				<StrengthFilter />
 				<BitternessFilter />
