@@ -50,3 +50,11 @@ export const getBeerColor = (ebc) => {
 
 	return color;
 };
+
+export const removeSentencePeriod = (string) => {
+	if (string.charAt(string.length - 1) === ".") {
+		return string.slice(0, -1);
+	} else {
+		return string;
+	}
+};

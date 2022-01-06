@@ -1,6 +1,6 @@
 import { Link } from "react-router-dom";
 import styled from "styled-components";
-import { getBeerColor } from "../utils";
+import { getBeerColor, removeSentencePeriod } from "../utils";
 
 const BeerItem = ({ beer }) => {
 	const ebc = beer.ebc ? beer.ebc : 100;
@@ -16,7 +16,7 @@ const BeerItem = ({ beer }) => {
 					<Name>{beer.name}</Name>
 					<Abv>{beer.abv}%</Abv>
 				</Flex>
-				<Tagline>{beer.tagline}</Tagline>
+				<Tagline>{removeSentencePeriod(beer.tagline)}</Tagline>
 
 				{hasImage && <Image src={beer.image_url} loading="lazy" />}
 			</StyledLink>

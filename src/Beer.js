@@ -2,7 +2,7 @@ import styled from "styled-components";
 import { useParams } from "react-router-dom";
 import { Helmet } from "react-helmet";
 import useBeer from "./hooks/useBeer";
-import { getBeerColor } from "./utils";
+import { getBeerColor, removeSentencePeriod } from "./utils";
 import "./tables.css";
 import { ReactComponent as MaltIcon } from "./icons/icon-malt.svg";
 import { ReactComponent as HopsIcon } from "./icons/icon-hops.svg";
@@ -39,7 +39,7 @@ const Beer = () => {
 					<Header ebc={ebc}>
 						<div>
 							<Name>{beer.name}</Name>
-							<Tagline>{beer.tagline}</Tagline>
+							<Tagline>{removeSentencePeriod(beer.tagline)}</Tagline>
 						</div>
 						<BubblesWrapper>
 							<Bubbles />
