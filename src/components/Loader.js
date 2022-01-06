@@ -1,7 +1,16 @@
 import styled from "styled-components";
 import Bubbles from "./Bubbles";
 
-const strings = ["pouring", "filtering", "bottling", "fermenting", "siphoning"];
+const strings = [
+	"pouring",
+	"filtering",
+	"bottling",
+	"fermenting",
+	"siphoning",
+	"brewing",
+	"boiling",
+	"mashing",
+];
 
 const Loader = () => {
 	return (
