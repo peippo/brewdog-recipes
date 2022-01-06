@@ -11,12 +11,14 @@ const Pagination = () => {
 
 	return (
 		<Container>
-			<Button
-				disabled={currentPage === 1}
-				onClick={() => setCurrentPage(currentPage - 1)}
-			>
-				Previous page
-			</Button>
+			{(beers.length === 60 || currentPage !== 1) && (
+				<Button
+					disabled={currentPage === 1}
+					onClick={() => setCurrentPage(currentPage - 1)}
+				>
+					Previous page
+				</Button>
+			)}
 			{beers.length === 60 && (
 				<Button onClick={() => setCurrentPage(currentPage + 1)}>
 					Next page
