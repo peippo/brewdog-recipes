@@ -1,8 +1,12 @@
 import { Helmet } from "react-helmet";
 import BeerList from "./components/BeerList";
 import Filters from "./components/Filters/Filters";
+import Pagination from "./components/Pagination";
+import useScrollToTop from "./hooks/useScrollToTop";
 
 const Home = () => {
+	useScrollToTop();
+
 	return (
 		<>
 			<Helmet>
@@ -13,6 +17,7 @@ const Home = () => {
 			<main>
 				<Filters />
 				<BeerList />
+				<Pagination />
 			</main>
 		</>
 	);

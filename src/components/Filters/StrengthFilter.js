@@ -1,12 +1,14 @@
 import { useState } from "react";
 import styled from "styled-components";
 import Slider from "@mui/material/Slider";
-import { useRecoilState } from "recoil";
+import { useRecoilState, useSetRecoilState } from "recoil";
 import { strengthAtom } from "../../state/strength";
+import { currentPageAtom } from "../../state/currentPage";
 import { INITIAL_STRENGTH } from "../../state/initialValues";
 
 const StrengthFilter = () => {
 	const [strength, setStrength] = useRecoilState(strengthAtom);
+	const setCurrentPage = useSetRecoilState(currentPageAtom);
 	const [value, setValue] = useState(strength);
 
 	const minDistance = 1;
@@ -20,6 +22,7 @@ const StrengthFilter = () => {
 	};
 
 	const handleCommittedChange = (event, value) => {
+		setCurrentPage(1);
 		setStrength(value);
 	};
 

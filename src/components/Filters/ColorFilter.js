@@ -1,14 +1,16 @@
 import { useState, useEffect } from "react";
 import styled from "styled-components";
 import Slider from "@mui/material/Slider";
-import { useRecoilState } from "recoil";
+import { useRecoilState, useSetRecoilState } from "recoil";
 import { colorAtom } from "../../state/color";
+import { currentPageAtom } from "../../state/currentPage";
 import { INITIAL_COLOR } from "../../state/initialValues";
 import { getBeerColorName } from "../../utils";
 import "./ColorFilter.css";
 
 const ColorFilter = () => {
 	const [color, setColor] = useRecoilState(colorAtom);
+	const setCurrentPage = useSetRecoilState(currentPageAtom);
 	const [value, setValue] = useState(color);
 
 	const minDistance = 1;
@@ -22,6 +24,10 @@ const ColorFilter = () => {
 	};
 
 	const handleCommittedChange = (event, value) => {
+		if (event) {
+			setCurrentPage(1);
+		}
+
 		// If slider max thumb is at initial max value, set it to 9999
 		let adjustedValue = value;
 		if (value[1] === INITIAL_COLOR[1]) {

@@ -1,8 +1,9 @@
 import { useState } from "react";
 import styled from "styled-components";
 import Slider from "@mui/material/Slider";
-import { useRecoilState } from "recoil";
+import { useRecoilState, useSetRecoilState } from "recoil";
 import { bitternessAtom } from "../../state/bitterness";
+import { currentPageAtom } from "../../state/currentPage";
 import { INITIAL_BITTERNESS } from "../../state/initialValues";
 
 const marks = [
@@ -68,6 +69,7 @@ const getSliderPosition = (value) => {
 
 const BitternessFilter = () => {
 	const [bitterness, setBitterness] = useRecoilState(bitternessAtom);
+	const setCurrentPage = useSetRecoilState(currentPageAtom);
 	const [value, setValue] = useState([
 		getSliderPosition(bitterness[0]),
 		getSliderPosition(bitterness[1]),
@@ -84,6 +86,8 @@ const BitternessFilter = () => {
 	};
 
 	const handleCommittedChange = (event, value) => {
+		setCurrentPage(1);
+
 		const min = getLogValue(value[0]);
 		const max = getLogValue(value[1]);
 		setBitterness([min, max]);
