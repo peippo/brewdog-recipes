@@ -26,6 +26,7 @@ body {
 	background-size: 800px;
 	color: #ffffff;
 	box-shadow: 0 400px 100px rgba(0, 0, 0, 0.33) inset;
+	overflow-y: scroll;
 }
 
 #root {
