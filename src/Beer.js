@@ -1,3 +1,5 @@
+import { useRef, useLayoutEffect } from "react";
+import { gsap } from "gsap";
 import styled from "styled-components";
 import { useParams } from "react-router-dom";
 import { Helmet } from "react-helmet";
@@ -14,6 +16,40 @@ import Error from "./components/Error";
 const Beer = () => {
 	const { beerId } = useParams();
 	const { data: beer, isLoading, isError } = useBeer(beerId);
+
+	const timelineRef = useRef();
+	const headerRef = useRef();
+	const descriptionRef = useRef();
+	const basicsRef = useRef();
+	const imageRef = useRef();
+	const ingredientsRef = useRef();
+	const foodRef = useRef();
+
+	useLayoutEffect(() => {
+		timelineRef.current = gsap
+			.timeline({
+				defaults: { duration: 0.2, opacity: 0 },
+			})
+			.from(headerRef.current, { opacity: 0, duration: 0.5, delay: 0.2 })
+			.from(descriptionRef.current, {
+				y: "-30px",
+			})
+			.from(basicsRef.current, {
+				y: "-30px",
+			})
+			.from(ingredientsRef.current, {
+				y: "-30px",
+			})
+			.from(foodRef.current, { y: "-30px" })
+			.from(imageRef.current, {
+				y: "-30px",
+				x: "40px",
+				rotate: 10,
+				ease: "power3.out",
+				duration: 0.75,
+				delay: "-0.4",
+			});
+	});
 
 	if (isLoading) return <Loader />;
 	if (isError) return <Error />;
@@ -32,7 +68,7 @@ const Beer = () => {
 			</Helmet>
 			<Container>
 				<section>
-					<Header ebc={ebc}>
+					<Header ebc={ebc} ref={headerRef}>
 						<div>
 							<Name>{beer.name}</Name>
 							<Tagline>{removeSentencePeriod(beer.tagline)}</Tagline>
@@ -55,10 +91,12 @@ const Beer = () => {
 					</Header>
 					<Cols>
 						<Col width={50}>
-							<Description>{beer.description}</Description>
+							<Description ref={descriptionRef}>
+								{beer.description}
+							</Description>
 						</Col>
 						<Col width={35}>
-							<table aria-label="Basics">
+							<table aria-label="Basics" ref={basicsRef}>
 								<tbody>
 									<tr>
 										<th>Volume</th>
@@ -116,13 +154,17 @@ const Beer = () => {
 						</Col>
 						<Col width={15}>
 							{hasImage && (
-								<DesktopImage src={beer.image_url} loading="lazy" />
+								<DesktopImage
+									src={beer.image_url}
+									loading="lazy"
+									ref={imageRef}
+								/>
 							)}
 						</Col>
 					</Cols>
 				</section>
 
-				<section>
+				<section ref={ingredientsRef}>
 					<SectionHeading>Ingredients &amp; process</SectionHeading>
 
 					<Cols>
@@ -253,7 +295,7 @@ const Beer = () => {
 					</Cols>
 				</section>
 
-				<section>
+				<section ref={foodRef}>
 					<SectionHeading id="food-heading">Food pairing</SectionHeading>
 					<FoodPairing>
 						<RabbitIllustration src="/illustration-rabbit.png" alt="" />

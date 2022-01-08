@@ -1,4 +1,4 @@
-import { useState } from "react";
+import { forwardRef, useState } from "react";
 import styled from "styled-components";
 import Slider from "@mui/material/Slider";
 import { useRecoilState, useSetRecoilState } from "recoil";
@@ -67,7 +67,7 @@ const getSliderPosition = (value) => {
 	return Math.ceil((Math.log(value) - MIN_VALUE) / SCALE + MIN_POSITION);
 };
 
-const BitternessFilter = () => {
+const BitternessFilter = forwardRef((props, ref) => {
 	const [bitterness, setBitterness] = useRecoilState(bitternessAtom);
 	const setCurrentPage = useSetRecoilState(currentPageAtom);
 	const [value, setValue] = useState([
@@ -102,7 +102,7 @@ const BitternessFilter = () => {
 	};
 
 	return (
-		<Container>
+		<Container ref={ref}>
 			<Label id="bitterness-label">Bitterness</Label>
 			<Slider
 				value={value}
@@ -120,7 +120,7 @@ const BitternessFilter = () => {
 			/>
 		</Container>
 	);
-};
+});
 
 const Container = styled.div`
 	display: flex;

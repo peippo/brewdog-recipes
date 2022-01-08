@@ -16,7 +16,6 @@ A BrewDog brew recipe book built as part of a weekly programming challenge hoste
 ## Todo
 
 -  Text search?
--  Page transition animations?
 
 ---
 

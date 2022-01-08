@@ -1,17 +1,37 @@
+import { useRef, useLayoutEffect } from "react";
+import { gsap } from "gsap";
 import styled from "styled-components";
 import StrengthFilter from "./StrengthFilter";
 import BitternessFilter from "./BitternessFilter";
 import ColorFilter from "./ColorFilter";
 
 const Filters = () => {
+	const strengthFilterRef = useRef();
+	const bitternessFilterRef = useRef();
+	const colorFilterRef = useRef();
+
+	useLayoutEffect(() => {
+		const filterRefs = [
+			strengthFilterRef.current,
+			bitternessFilterRef.current,
+			colorFilterRef.current,
+		];
+
+		gsap.fromTo(
+			filterRefs,
+			{ y: "-30px", opacity: 0 },
+			{ y: 0, opacity: 1, stagger: 0.15 }
+		);
+	}, []);
+
 	return (
 		<Container>
 			<h2 className="screen-reader-text">Filter recipes</h2>
 			<DoubleRow>
-				<StrengthFilter />
-				<BitternessFilter />
+				<StrengthFilter ref={strengthFilterRef} />
+				<BitternessFilter ref={bitternessFilterRef} />
 			</DoubleRow>
-			<SingleRow>
+			<SingleRow ref={colorFilterRef}>
 				<ColorFilter />
 			</SingleRow>
 		</Container>

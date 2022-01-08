@@ -14,8 +14,8 @@ const BeerList = () => {
 
 	return (
 		<Grid aria-label="List of recipes">
-			{beers.map((beer) => (
-				<BeerItem key={beer.id} beer={beer} />
+			{beers.map((beer, index) => (
+				<BeerItem key={beer.id} beer={beer} index={index} />
 			))}
 		</Grid>
 	);
