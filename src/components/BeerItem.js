@@ -20,7 +20,7 @@ const BeerItem = ({ beer, index }) => {
 			stagger: () => index * 0.01,
 			ease: "power2.out",
 		});
-	}, []);
+	});
 
 	return (
 		<Item ebc={ebc} ref={itemRef}>

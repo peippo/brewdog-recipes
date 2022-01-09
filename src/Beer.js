@@ -26,29 +26,31 @@ const Beer = () => {
 	const foodRef = useRef();
 
 	useLayoutEffect(() => {
-		timelineRef.current = gsap
-			.timeline({
-				defaults: { duration: 0.2, opacity: 0 },
-			})
-			.from(headerRef.current, { opacity: 0, duration: 0.5, delay: 0.2 })
-			.from(descriptionRef.current, {
-				y: "-30px",
-			})
-			.from(basicsRef.current, {
-				y: "-30px",
-			})
-			.from(ingredientsRef.current, {
-				y: "-30px",
-			})
-			.from(foodRef.current, { y: "-30px" })
-			.from(imageRef.current, {
-				y: "-30px",
-				x: "40px",
-				rotate: 10,
-				ease: "power3.out",
-				duration: 0.75,
-				delay: "-0.4",
-			});
+		if (!isLoading && !isError) {
+			timelineRef.current = gsap
+				.timeline({
+					defaults: { duration: 0.2, opacity: 0 },
+				})
+				.from(headerRef.current, { opacity: 0, duration: 0.5, delay: 0.2 })
+				.from(descriptionRef.current, {
+					y: -30,
+				})
+				.from(basicsRef.current, {
+					y: -30,
+				})
+				.from(ingredientsRef.current, {
+					y: -30,
+				})
+				.from(foodRef.current, { y: -30 })
+				.from(imageRef.current, {
+					y: -30,
+					x: 40,
+					rotate: 10,
+					ease: "power3.out",
+					duration: 0.75,
+					delay: "-0.4",
+				});
+		}
 	});
 
 	if (isLoading) return <Loader />;

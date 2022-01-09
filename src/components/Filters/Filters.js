@@ -17,11 +17,7 @@ const Filters = () => {
 			colorFilterRef.current,
 		];
 
-		gsap.fromTo(
-			filterRefs,
-			{ y: "-30px", opacity: 0 },
-			{ y: 0, opacity: 1, stagger: 0.15 }
-		);
+		gsap.from(filterRefs, { y: -30, opacity: 0, stagger: 0.15 });
 	}, []);
 
 	return (
