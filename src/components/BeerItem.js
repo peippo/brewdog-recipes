@@ -1,29 +1,16 @@
-import { useRef, useEffect } from "react";
-import { gsap } from "gsap";
 import { Link } from "react-router-dom";
 import styled from "styled-components";
 import { getBeerColor, removeSentencePeriod } from "../utils";
 
-const BeerItem = ({ beer, index }) => {
+const BeerItem = ({ beer }) => {
 	const ebc = beer.ebc ? beer.ebc : 100;
 	const hasImage =
 		beer.image_url &&
 		!beer.image_url.includes("keg.png") &&
 		!beer.image_url.includes("cask.png");
 
-	const itemRef = useRef();
-
-	useEffect(() => {
-		gsap.to(itemRef.current, {
-			opacity: 1,
-			delay: 0.4,
-			stagger: () => index * 0.01,
-			ease: "power2.out",
-		});
-	});
-
 	return (
-		<Item ebc={ebc} ref={itemRef}>
+		<Item ebc={ebc}>
 			<StyledLink to={`/beer/${beer.id}`} ebc={ebc}>
 				<Flex>
 					<Name>{beer.name}</Name>

@@ -1,4 +1,6 @@
+import { useRef, useLayoutEffect } from "react";
 import styled from "styled-components";
+import { gsap } from "gsap";
 import useBeer from "../hooks/useBeer";
 import BeerItem from "./BeerItem";
 import Loader from "./Loader";
@@ -8,14 +10,28 @@ import Error from "./Error";
 const BeerList = () => {
 	const { data: beers, isLoading, isError } = useBeer();
 
+	const listRef = useRef();
+	const selector = gsap.utils.selector(listRef);
+
+	useLayoutEffect(() => {
+		if (!isLoading && !isError) {
+			gsap.to(selector("li"), {
+				opacity: 1,
+				delay: 0.25,
+				stagger: (index) => (index < 15 ? index * 0.01 : 15 * 0.01),
+				ease: "power2.out",
+			});
+		}
+	});
+
 	if (isLoading) return <Loader />;
 	if (isError) return <Error />;
 	if (beers.length === 0) return <NoHits />;
 
 	return (
-		<Grid aria-label="List of recipes">
-			{beers.map((beer, index) => (
-				<BeerItem key={beer.id} beer={beer} index={index} />
+		<Grid aria-label="List of recipes" ref={listRef}>
+			{beers.map((beer) => (
+				<BeerItem key={beer.id} beer={beer} />
 			))}
 		</Grid>
 	);
