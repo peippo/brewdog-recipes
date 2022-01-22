@@ -286,6 +286,10 @@ const Beer = () => {
 									</tr>
 								</tbody>
 							</table>
+
+							{beer.method.twist && (
+								<TwistText>{beer.method.twist}</TwistText>
+							)}
 						</Col>
 						<Col>
 							<BackgroundGradient>
@@ -527,6 +531,12 @@ const BrewersText = styled.p`
 		border-left: 1px solid var(--color-secondary);
 		opacity: 0.4;
 	}
+`;
+
+const TwistText = styled.p`
+	padding: 0 1rem 1rem;
+	line-height: 1.4;
+	font-size: 15px;
 `;
 
 const Cols = styled.div`
